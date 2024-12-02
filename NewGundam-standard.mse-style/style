@@ -1,0 +1,21 @@
+﻿mse version:	2.0.0
+game:			NewGundam
+short name:		NewGundam
+full name:		NewGundam
+icon:			card_sample.png
+position hint:	001
+
+version:		2023-12-04
+depends on:	NewGundam.mse-game 2023-12-04
+depends on:	NweGundam-Tags.mse-symbol-font 2023-12-04
+
+card width:	750
+card height:	1063
+card dpi:	600
+
+
+init script:
+	Image		:=	{ "cards/"+ card.color + "/" + card.type + ".png" }
+	commonhide	:=	{"760"}		
+
+####################### Card Field Looks

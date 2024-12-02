@@ -1,0 +1,17 @@
+﻿mse version: 2.0.0
+version: 2024-09-29
+short name: Tags
+depends on:
+	package: NewGundam.mse-game
+	version: 2023-12-04
+
+image font size: 30
+scale text: true
+horizontal space: 0
+
+
+##############################################################
+# Insert-symbol menu
+insert symbol menu:
+	item: (Base)
+	item: (Colony)

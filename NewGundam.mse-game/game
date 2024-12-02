@@ -1,0 +1,216 @@
+﻿mse version: 2.0.0
+short name: NewGundam
+full name: Gundam2024
+
+installer group: GCG/game files
+icon: card-back.png
+position hint: 01
+
+version: 2023-12-04
+depends on:	NweGundam-Tags.mse-symbol-font 2023-12-04
+
+
+####################### Card Function Definitions
+
+# init script:
+
+####################### Set Field Definitions
+
+set field:
+	type: text
+	name: Set_Name
+	identifying: true
+
+set field:
+	type: text
+	name: Set_Code
+	identifying: true
+
+####################### Top area
+
+card field:
+	type:			text
+	name:			Cost
+	description:		Card Cost
+	card list visible:	false
+
+card field:
+	type:			text
+	name:			Level
+	description:		Card Level
+	card list visible:	false
+
+card field:
+	type:			text
+	name:			sort_number
+	save value:		false
+	identifying:		true
+	card list visible:	true
+	card list column:	1
+
+
+####################### Left Edge line
+
+card field:
+	type:			text
+	name:			full_name
+	identifying:		false
+	multi line:		false
+	editable:		false
+	card list visible:	true
+	save value:		false
+	script:			card.main_name + {if card.subline_name != "" then " - " + card.subline_name else ""}
+
+
+card field:
+	type:				choice
+	name:				type
+	identifying:			false
+	multi line:			true
+	card list visible:		true
+	card list column:		2
+	description:			The type
+	choice:			Unit
+	choice:			Pilot
+	choice:			Command
+	choice:			Base
+
+card field:
+	type:				choice
+	name:				color
+	identifying:			false
+	multi line:			true
+	card list visible:		true
+	card list column:		3
+	description:			The type
+	choice:			Blue
+	choice:			Green
+	choice:			White
+	choice:			Red
+
+card field:
+	type:				text
+	name:				main_name
+	card list visible:		false
+	multi line:			false
+	card list column:		500
+	description:			The main name of the card
+card field:
+	type:				text
+	name:				subline_name
+	card list visible:		false
+	multi line:			false
+	card list column:		501
+	description:			The subline of the card's name
+
+
+####################### Image
+
+card field:
+	type:				image
+	name:				image
+	show statistics:		false
+	description:			The image of the card
+
+card field:
+	type:				choice
+	name:				textbox
+	show statistics:		false
+	editable:			false
+	choice: true
+
+####################### Card type
+	
+
+card field:
+	type:		choice
+	name:		rarity
+	choice:		Common
+	choice:		Uncommon
+	choice:		Rare
+	choice:		Special
+	description:	The rarity of the card.
+
+####################### Text box
+
+card field:
+	type:				text
+	name:				effect
+	show statistics:		false
+	multi line:			true
+	description:			The rules text for the card.
+
+card field:
+	type:				text
+	name:				link
+	show statistics:		false
+	multi line:			true
+	description:			The rules text for the card.
+
+card field:
+	type:				text
+	name:				flavor_text
+	show statistics:		false
+	multi line:			true
+	description:			The flavor text for the card.
+
+####################### LeftPowers
+
+card field:
+	type:				text
+	name:				AP
+	show statistics:		false
+	description:			The strike power of a Unit
+
+card field:
+	type:				text
+	name:				HP
+	show statistics:		false
+	description:			The shooting power of a Unit
+
+card field:
+	type:				text
+	name:				AP/HP
+	save value:			false
+	script: 
+		combined_editor(
+			field1: card.AP,
+			separator1: " ",
+			field2: card.HP,
+			soft_before_empty: true,
+			hide_when_empty:   true
+		)
+	card list visible:		true
+	card list column:		5
+	card list width:		50
+	card list name:			AP/HP
+	description:			Attack/Health Power
+	show statistics:		false
+
+####################### UnitArea
+
+card field:
+	type:		choice
+	name:		zone
+	choice:	Earth
+	choice:	Space
+	choice:	Earth-Space
+	description:	The area a unit can be fielded in.
+
+
+####################### Copyright stuff
+
+card field:
+	type:			text
+	name:			illustrator
+	position hint:		210
+	description:		Illustrator of this card
+	show statistics:	false
+
+card field:
+	type:			text
+	name:			set
+	save value:		false
+	description:		Set Name
+	default:		set.Set_Code
+	editable:		false
